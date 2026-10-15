@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ScamWise Check</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>ScamWise</h1>
+    <p id="url" class="url">…</p>
+    <p id="verdict" class="verdict">Analyzing…</p>
+    <ul id="reasons" class="reasons"></ul>
+    <div class="row">
+      <button id="rescan" type="button">Re-scan</button>
+      <button id="whitelist" type="button">Trust 24h</button>
+      <button id="dashboard" type="button">History</button>
+    </div>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

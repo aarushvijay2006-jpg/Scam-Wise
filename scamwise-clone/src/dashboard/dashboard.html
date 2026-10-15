@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ScamWise History</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f8fafc; margin: 0; }
+    .wrap { max-width: 720px; margin: 24px auto; padding: 16px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { border: 1px solid #e2e8f0; padding: 8px; font-size: 13px; text-align: left; }
+    th { background: #f1f5f9; }
+    .row { display: flex; gap: 8px; margin-bottom: 12px; }
+    button { padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>ScamWise History</h1>
+    <div class="row">
+      <button id="refresh" type="button">Refresh</button>
+      <button id="clear" type="button">Clear</button>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Time</th><th>Host</th><th>Score</th><th>Level</th><th>URL</th></tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </main>
+  <script src="dashboard.js"></script>
+</body>
+</html>

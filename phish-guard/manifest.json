@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "PhishGuard - Scam Detector",
+  "version": "0.1.0",
+  "description": "Detects phishing URLs and scam messages locally before page loads.",
+  "permissions": ["webNavigation", "declarativeNetRequest", "storage", "tabs", "alarms"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*", "https://web.whatsapp.com/*", "*://*/*"],
+      "js": ["rules.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "PhishGuard Check"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["warning.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

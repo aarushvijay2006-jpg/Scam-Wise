@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "ScamWise Clone - Scam Detector",
+  "version": "1.0.0",
+  "description": "Detects phishing URLs and scam messages. Local rules + optional backend at http://localhost:8000/analyze.",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "webNavigation",
+    "declarativeNetRequest",
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting",
+    "alarms"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "src/lib/constants.js",
+        "src/lib/utils.js",
+        "src/lib/rules-engine.js",
+        "src/lib/scoring.js",
+        "src/lib/features.js",
+        "src/content/extractor.js",
+        "src/content/banner.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "ScamWise Check"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["src/warning/warning.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
